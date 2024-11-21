@@ -239,3 +239,46 @@ footer p {
 body.scrolled .scroll-top {
     display: block;
 }
+.bg-primary {
+    background-color: #4A90E2;
+  }
+  
+  .text-accent {
+    color: #FFD700;
+  }
+  
+  .year-section {
+    margin-bottom: 4rem;
+  }
+  
+  .year-section h3 {
+    text-align: center;
+  }
+  
+
+  /* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+  }
+  
+  h2 {
+    font-size: 2rem;
+    color: #333;
+  }
+  
+  img.lazyload {
+    background: url('spinner.gif') no-repeat center center;
+    background-size: 40px;
+  }
+  
+  img:not(.lazyload) {
+    background: none;
+  }
+  
+  /* Tailwind utility classes applied dynamically */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+  }
+  
