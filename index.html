@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Christ the King Church, Iruthyapuram</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="languages.js" defer></script> <!-- External JS file for language switching -->
+</head>
+<body class="bg-gray-100 text-gray-900 font-sans" id="body">
+
+  <!-- Navbar -->
+  <header id="navbar" class="fixed top-0 left-0 w-full py-4 transition-all duration-300 z-50">
+    <div class="container mx-auto flex justify-between items-center px-4">
+      <div class="flex items-center space-x-3">
+        <!-- Logo -->
+        <img src="images/logo.png" alt="Church Logo" class="h-20 w-20 rounded-full">
+        <h1 class="text-2xl font-bold text-white" id="churchName">Christ the King Church</h1>
+      </div>
+      <nav>
+        <ul class="flex space-x-4 text-white">
+          <li><a href="index.html" class="hover:text-accent" id="homeLink">Home</a></li>
+          <li><a href="history.html" class="hover:text-accent" id="historyLink">History</a></li>
+          <li><a href="gallery.html" class="hover:text-accent" id="galleryLink">Gallery</a></li>
+          <li><a href="contact.html" class="hover:text-accent" id="contactLink">Contact</a></li>
+        </ul>
+      </nav>
+      <!-- Language Switcher -->
+      <div class="relative inline-block text-left">
+        <button id="languageToggle" onclick="toggleLanguage()" class="flex items-center space-x-2 bg-accent text-white py-2 px-4 rounded-lg hover:bg-primary focus:outline-none transition-all">
+          <span id="languageText">English</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section with Dynamic Background -->
+  <section id="hero" class="relative h-screen bg-cover bg-center transition-all duration-500" style="background-image: url('images/hero-bg1.jpg');">
+    <div class="absolute inset-0 bg-black opacity-40"></div>
+    <div class="container mx-auto relative z-10 text-center text-white flex items-center justify-center h-full">
+      <div>
+        <h2 class="text-4xl font-bold mb-4" id="heroTitle">Welcome to Christ the King Church</h2>
+        <p class="mb-6" id="heroDescription">A community of faith, worship, and love in Iruthyapuram</p>
+        <a href="contact.html" class="bg-accent text-white py-2 px-6 rounded-lg shadow-lg hover:bg-primary transition-all" id="contactBtn">Contact Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission Section -->
+  <main class="container mx-auto px-4 py-16">
+    <h2 class="text-3xl font-bold text-center mb-8" id="missionTitle">Our Mission</h2>
+    <p class="text-center text-gray-700 max-w-3xl mx-auto" id="missionText">
+      At Christ the King Church, we strive to bring people closer to God through meaningful worship, compassionate service, and community building.
+    </p>
+  </main>
+
+  <!-- Gallery Section -->
+  <main class="container mx-auto px-4 py-16 mt-20">
+    <h2 class="text-3xl font-bold text-center mb-8" id="galleryTitle">Gallery</h2>
+    <div id="gallery" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <!-- Dynamic Image Cards will be injected here -->
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-primary text-white py-6">
+    <div class="container mx-auto text-center">
+      <p>&copy; 2024 Christ the King Church, Iruthyapuram. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript for Dynamic Background Change -->
+  <script>
+    // Array of background images
+    const backgrounds = [
+      'images/hero-bg1.jpg',  // First image
+      'images/hero-bg2.jpg',  // Second image
+      'images/hero-bg3.jpg',  // Third image
+    ];
+
+    let currentIndex = 0;
+
+    // Function to change the background
+    function changeBackground() {
+      const heroSection = document.getElementById('hero');
+      currentIndex = (currentIndex + 1) % backgrounds.length;  // Cycle through images
+      heroSection.style.backgroundImage = `url(${backgrounds[currentIndex]})`;
+    }
+
+    // Change the background every 5 seconds
+    setInterval(changeBackground, 5000);
+  </script>
+</body>
+</html>

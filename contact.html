@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - Christ the King Church</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="languages.js" defer></script> <!-- External JS file for language switching -->
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans" id="body">
+
+  <!-- Navbar -->
+  <header class="fixed top-0 left-0 w-full py-4 bg-gradient-to-r from-green-500 to-blue-500 text-white shadow-lg z-50">
+    <div class="container mx-auto flex justify-between items-center px-6">
+      <div class="flex items-center space-x-3">
+        <img src="images/logo.png" alt="Church Logo" class="h-10 w-10 rounded-full">
+        <h1 class="text-2xl font-bold">Christ the King Church</h1>
+      </div>
+      <nav>
+        <ul class="flex space-x-6">
+          <li><a href="index.html" class="hover:text-gray-300">Home</a></li>
+          <li><a href="history.html" class="hover:text-gray-300">History</a></li>
+          <li><a href="gallery.html" class="hover:text-gray-300">Gallery</a></li>
+          <li><a href="contact.html" class="hover:text-gray-300">Contact</a></li>
+        </ul>
+      </nav>
+      <!-- Language Switcher -->
+      <button id="languageToggle" onclick="toggleLanguage()" class="bg-green-600 text-white py-2 px-4 rounded-lg focus:outline-none hover:bg-green-700">
+        <span id="languageText">English</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Contact Section -->
+  <main class="container mx-auto px-6 py-16 mt-24">
+    <h2 class="text-4xl font-bold text-center mb-8 text-green-600" id="contactTitle">Get in Touch</h2>
+    <p class="text-center text-gray-700 max-w-3xl mx-auto mb-6" id="contactText">
+      For any inquiries or prayer requests, feel free to reach out to us through the contact details provided.
+    </p>
+    <div class="mt-8 text-center">
+      <a href="mailto:contact@christthekingchurch.com" class="bg-green-600 text-white py-2 px-6 rounded-lg shadow-lg hover:bg-green-700 transition-all">
+        Send us an email
+      </a>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-6">
+    <div class="container mx-auto text-center">
+      <p>&copy; 2024 Christ the King Church, Iruthyapuram. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
