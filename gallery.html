@@ -5,41 +5,121 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gallery - Christ the King Church</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="css/styles.css">
-  <script src="js/gallery.js" defer></script>
+  <script src="https://apis.google.com/js/api.js"></script> <!-- Google API Script -->
+  <style>
+    .gallery-img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+  </style>
 </head>
 <body class="bg-gray-100 text-gray-900 font-sans">
 
   <!-- Navbar -->
-  <header id="navbar" class="fixed top-0 left-0 w-full py-4 transition-all duration-300 z-50">
-    <div class="container mx-auto flex justify-between items-center px-4">
+  <header class="bg-blue-600 text-white py-4">
+    <div class="container mx-auto flex justify-between items-center">
       <div class="flex items-center space-x-3">
         <img src="images/logo.png" alt="Church Logo" class="h-10 w-10 rounded-full">
-        <h1 class="text-3xl font-bold text-black">Christ the King Church</h1>
+        <h1 class="text-2xl font-bold">Christ the King Church</h1>
       </div>
       <nav>
-        <ul class="flex space-x-4 text-black">
-          <li><a href="index.html" class="hover:text-accent">Home</a></li>
-          <li><a href="history.html" class="hover:text-accent">History</a></li>
-          <li><a href="gallery.html" class="hover:text-accent">Gallery</a></li>
-          <li><a href="contact.html" class="hover:text-accent">Contact</a></li>
+        <ul class="flex space-x-4">
+          <li><a href="index.html" class="hover:text-gray-300">Home</a></li>
+          <li><a href="history.html" class="hover:text-gray-300">History</a></li>
+          <li><a href="gallery.html" class="text-gray-300 underline">Gallery</a></li>
+          <li><a href="contact.html" class="hover:text-gray-300">Contact</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <!-- Gallery Section -->
-  <main class="container mx-auto py-8">
-    <h2 class="text-3xl font-bold text-center mb-8">Gallery</h2>
-    <div id="year-container" class="space-y-12">
-      <!-- Dynamic Year Containers will be inserted here -->
+  <!-- Hero Section -->
+  <section class="relative bg-cover bg-center h-96" style="background-image: url('images/hero-bg1.jpg');">
+    <div class="absolute inset-0 bg-black opacity-40"></div>
+    <div class="relative z-10 container mx-auto flex flex-col justify-center items-center h-full text-center text-white">
+      <h1 class="text-5xl font-bold mb-4" id="gallery-title">Gallery</h1>
+      <p class="text-lg max-w-2xl" id="gallery-description">Explore the wonderful moments captured in the life of Christ the King Church, Iruthayapuram.</p>
     </div>
-  </main>
+  </section>
+
+  <!-- Gallery Section -->
+  <section class="container mx-auto px-4 py-12">
+    <h2 class="text-3xl font-bold text-center mb-6">Our Gallery</h2>
+    <div id="image-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Images will be dynamically loaded here -->
+    </div>
+  </section>
 
   <!-- Footer -->
-  <footer class="bg-primary text-white py-4 text-center">
-    &copy; 2024 Christ the King Church, Iruthyapuram. All rights reserved.
+  <footer class="bg-blue-600 text-white py-4">
+    <div class="container mx-auto text-center">
+      &copy; 2024 Christ the King Church, Iruthayapuram. All rights reserved.
+    </div>
   </footer>
+
+  <!-- Google API Script for fetching images -->
+  <script>
+    function start() {
+      gapi.client.init({
+        'apiKey': 'AIzaSyDkeDkty6zXrei8jA1rrHM01lHsF9TLGyk', // Replace with your API key
+        'clientId': '972048713001-cegvnrl0ja3d879j7hctj0faffb2o6o2.apps.googleusercontent.com', // Replace with your OAuth client ID
+        'scope': 'https://www.googleapis.com/auth/drive.readonly',
+        'discoveryDocs': ['https://www.googleapis.com/discovery/v1/apis/drive/v3/rest']
+      }).then(function () {
+        // Start loading the files from the "Images" folder
+        const galleryFolderId = '1hzMfQQLo5f5vcOewiypfmlmyfyMokGHi'; // Your Gallery Folder ID
+        loadDriveFiles(galleryFolderId);
+      });
+    }
+
+    function loadDriveFiles(galleryFolderId) {
+      // Step 1: List all folders inside the "Gallery" folder (e.g., "2024")
+      gapi.client.drive.files.list({
+        'q': `'${galleryFolderId}' in parents and mimeType = 'application/vnd.google-apps.folder'`, // Query for subfolders (e.g., "2024")
+        'fields': "files(id,name)"
+      }).then(function(response) {
+        const files = response.result.files;
+        if (files && files.length > 0) {
+          files.forEach(function(folder) {
+            // For each folder inside "Gallery", load its images (e.g., "2024")
+            loadImagesFromFolder(folder.id, folder.name);
+          });
+        } else {
+          console.log('No folders found in the Gallery folder.');
+        }
+      });
+    }
+
+    function loadImagesFromFolder(folderId, folderName) {
+      // Step 2: List all image files inside a folder (e.g., "2024" or "Christmas")
+      gapi.client.drive.files.list({
+        'q': `'${folderId}' in parents and mimeType contains 'image/'`, // Query for image files inside the folder
+        'fields': "files(id,name)"
+      }).then(function(response) {
+        const files = response.result.files;
+        if (files && files.length > 0) {
+          files.forEach(function(file) {
+            // Generate the image URL
+            const imageUrl = `https://drive.google.com/uc?export=view&id=${file.id}`;
+            
+            // Step 3: Add the image to the gallery
+            const imageContainer = document.getElementById('image-container');
+            const imgElement = document.createElement('img');
+            imgElement.src = imageUrl;
+            imgElement.alt = `${folderName} - ${file.name}`;
+            imgElement.classList.add('gallery-img');
+            imageContainer.appendChild(imgElement);
+          });
+        } else {
+          console.log('No images found in folder: ' + folderName);
+        }
+      });
+    }
+
+    gapi.load('client:auth2', start);
+  </script>
 
 </body>
 </html>

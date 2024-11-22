@@ -5,10 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>History - Christ the King Church</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="css/styles.css">
-  <script src="languages.js" defer></script> <!-- External JS file for language switching -->
+  <script src="languages.js"></script>
+  <style>
+    .gradient-overlay {
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.9));
+    }
+    .timeline-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+    }
+  </style>
 </head>
-<body class="bg-gray-50 text-gray-900 font-sans" id="body">
+<body class="bg-gray-100 text-gray-900 font-sans">
 
   <!-- Navbar -->
   <header id="navbar" class="fixed top-0 left-0 w-full py-4 transition-all duration-300 z-50">
@@ -16,10 +24,10 @@
       <div class="flex items-center space-x-3">
         <!-- Logo -->
         <img src="images/logo.png" alt="Church Logo" class="h-20 w-20 rounded-full">
-        <h1 class="text-2xl font-bold text-black" id="churchName">Christ the King Church</h1>
+        <h1 class="text-2xl font-bold text-white" id="churchName">Christ the King Church</h1>
       </div>
       <nav>
-        <ul class="flex space-x-4 text-black">
+        <ul class="flex space-x-4 text-white">
           <li><a href="index.html" class="hover:text-accent" id="homeLink">Home</a></li>
           <li><a href="history.html" class="hover:text-accent" id="historyLink">History</a></li>
           <li><a href="gallery.html" class="hover:text-accent" id="galleryLink">Gallery</a></li>
@@ -28,9 +36,9 @@
       </nav>
       <!-- Language Switcher -->
       <div class="relative inline-block text-left">
-        <button id="languageToggle" onclick="toggleLanguage()" class="flex items-center space-x-2 bg-accent text-black py-2 px-4 rounded-lg hover:bg-primary focus:outline-none transition-all">
+        <button id="languageToggle" onclick="toggleLanguage()" class="flex items-center space-x-2 bg-accent text-white py-2 px-4 rounded-lg hover:bg-primary focus:outline-none transition-all">
           <span id="languageText">English</span>
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
           </svg>
         </button>
@@ -38,25 +46,40 @@
     </div>
   </header>
 
-  <!-- History Section -->
-  <main class="container mx-auto px-6 py-16 mt-24">
-    <h2 class="text-4xl font-bold text-center mb-8 text-green-600" id="historyTitle">Our History</h2>
-    <div class="max-w-3xl mx-auto text-lg text-gray-700 leading-relaxed" id="historyText">
-      <p>
-        Christ the King Church has been a beacon of faith, serving the community in Iruthyapuram for several decades. Founded with the vision of spreading love, compassion, and service, the church has been at the heart of numerous transformative events. From its humble beginnings to its present-day prominence, our church's story is a testament to the unwavering faith of the community.
-      </p>
-      <p class="mt-6">
-        Through our rich history, we have hosted numerous events, worship services, and community outreach programs, all with the mission of spreading God's love. As we continue to grow, we honor our past and look forward to a brighter future, strengthened by faith and unity.
+  <!-- Hero Section -->
+  <section class="relative bg-cover bg-center h-96" style="background-image: url('images/history-bg.jpg');">
+    <div class="gradient-overlay absolute inset-0"></div>
+    <div class="container mx-auto relative z-10 flex flex-col justify-center items-center h-full text-center text-white">
+      <h1 id="hero-title" class="text-5xl font-bold mb-4">A Short History</h1>
+      <p id="hero-description" class="text-lg max-w-2xl">
+        Discover the journey of Christ the King Church, Iruthayapuram, from its humble beginnings to its vibrant present.
       </p>
     </div>
-  </main>
+  </section>
+
+  <!-- Introduction Section -->
+  <section class="container mx-auto px-4 py-12">
+    <h2 class="text-3xl font-bold text-center mb-8" id="intro-title">Introduction</h2>
+    <p id="intro-text" class="text-lg text-gray-700 max-w-4xl mx-auto">
+      Varavilai, known also as Vandikaravilai, was a part of Manivila parish belonging to the vicariate of Trivandrum. A small Catholic community of 10 families built a thatched church having Christ the King as their patron in 1943. Over the years, through the tireless efforts of parish priests and the growing Catholic community, Iruthayapuram Parish has become a beacon of faith and community development.
+    </p>
+  </section>
+
+  <!-- Timeline Section -->
+  <section class="container mx-auto px-4 py-12">
+    <h2 class="text-3xl font-bold text-center mb-8" id="timeline-title">Historical Timeline</h2>
+    <div id="timeline-container" class="grid gap-8 lg:grid-cols-2">
+      <!-- Timeline Items Will Be Injected Here -->
+    </div>
+  </section>
 
   <!-- Footer -->
-  <footer class="bg-gray-800 text-white py-6">
+  <footer class="bg-blue-600 text-white py-4">
     <div class="container mx-auto text-center">
-      <p>&copy; 2024 Christ the King Church, Iruthyapuram. All rights reserved.</p>
+      &copy; 2024 Christ the King Church, Iruthayapuram. All rights reserved.
     </div>
   </footer>
 
+  <script src="language.js"></script>
 </body>
 </html>
