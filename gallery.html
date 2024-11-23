@@ -83,7 +83,7 @@
     }
 
     function loadDriveFiles(accessToken) {
-      fetch(`https://www.googleapis.com/drive/v3/files?q='YOUR_GALLERY_FOLDER_ID'+in+parents&fields=files(id,name,mimeType)&access_token=${accessToken}`)
+      fetch(`https://www.googleapis.com/drive/v3/files?q='1hzMfQQLo5f5vcOewiypfmlmyfyMokGHi'+in+parents&fields=files(id,name,mimeType)&access_token=${accessToken}`)
         .then(response => response.json())
         .then(data => {
           const files = data.files;
