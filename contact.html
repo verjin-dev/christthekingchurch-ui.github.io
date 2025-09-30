@@ -4,53 +4,151 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact - Christ the King Church</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="css/styles.css">
-  <script src="languages.js" defer></script> <!-- External JS file for language switching -->
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="css/modern-styles.css">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- JavaScript Files -->
+  <script src="languages.js" defer></script>
 </head>
-<body class="bg-gray-50 text-gray-900 font-sans" id="body">
+<body id="body">
 
   <!-- Navbar -->
-  <header class="fixed top-0 left-0 w-full py-4 bg-gradient-to-r from-green-500 to-blue-500 text-white shadow-lg z-50">
-    <div class="container mx-auto flex justify-between items-center px-6">
-      <div class="flex items-center space-x-3">
-        <img src="images/logo.png" alt="Church Logo" class="h-10 w-10 rounded-full">
-        <h1 class="text-2xl font-bold">Christ the King Church</h1>
+  <header id="navbar" class="fixed top-0 left-0 w-full py-4 z-50">
+    <div class="container flex justify-between items-center">
+      <div class="logo-section" style="display: flex; align-items: center; gap: 1rem;">
+        <!-- Logo -->
+        <img src="images/logo.png" alt="Church Logo" style="height: 80px; width: 80px; border-radius: 50%;">
+        <h1 id="churchName">Christ the King Church</h1>
       </div>
       <nav>
-        <ul class="flex space-x-6">
-          <li><a href="index.html" class="hover:text-gray-300">Home</a></li>
-          <li><a href="history.html" class="hover:text-gray-300">History</a></li>
-          <li><a href="gallery.html" class="hover:text-gray-300">Gallery</a></li>
-          <li><a href="contact.html" class="hover:text-gray-300">Contact</a></li>
+        <ul>
+          <li><a href="index.html" id="homeLink">Home</a></li>
+          <li><a href="history.html" id="historyLink">History</a></li>
+          <li><a href="gallery.html" id="galleryLink">Gallery</a></li>
+          <li><a href="contact.html" id="contactLink">Contact</a></li>
         </ul>
       </nav>
       <!-- Language Switcher -->
-      <button id="languageToggle" onclick="toggleLanguage()" class="bg-green-600 text-white py-2 px-4 rounded-lg focus:outline-none hover:bg-green-700">
-        <span id="languageText">English</span>
-      </button>
+      <div class="language-switcher">
+        <button id="languageToggle" onclick="toggleLanguage()" style="display: flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; border-radius: 50px; color: white; cursor: pointer;">
+          <span id="languageText">English</span>
+          <svg xmlns="http://www.w3.org/2000/svg" style="width: 20px; height: 20px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </button>
+      </div>
     </div>
   </header>
 
-  <!-- Contact Section -->
-  <main class="container mx-auto px-6 py-16 mt-24">
-    <h2 class="text-4xl font-bold text-center mb-8 text-green-600" id="contactTitle">Get in Touch</h2>
-    <p class="text-center text-gray-700 max-w-3xl mx-auto mb-6" id="contactText">
-      For any inquiries or prayer requests, feel free to reach out to us through the contact details provided.
-    </p>
-    <div class="mt-8 text-center">
-      <a href="mailto:contact@christthekingchurch.com" class="bg-green-600 text-white py-2 px-6 rounded-lg shadow-lg hover:bg-green-700 transition-all">
-        Send us an email
-      </a>
+  <!-- Hero Section -->
+  <section id="hero" style="position: relative; height: 50vh; background: var(--gradient-primary); display: flex; align-items: center; justify-content: center;">
+    <div class="container" style="text-align: center; color: white;">
+      <h1 id="contactTitle" style="color: white; margin-bottom: 1rem;">Get in Touch</h1>
+      <p id="contactText" style="color: var(--text-secondary); font-size: 1.25rem;">
+        We'd love to hear from you. Reach out for any inquiries or prayer requests.
+      </p>
     </div>
-  </main>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="section">
+    <div class="container">
+      <div class="grid grid-3">
+        <div class="card animate-on-scroll">
+          <i class="fas fa-map-marker-alt" style="font-size: 2.5rem; color: var(--accent); margin-bottom: 1rem;"></i>
+          <h3>Address</h3>
+          <p>Christ the King Church<br>
+          Iruthyapuram<br>
+          Kerala, India</p>
+        </div>
+        
+        <div class="card animate-on-scroll" style="animation-delay: 0.1s;">
+          <i class="fas fa-phone-alt" style="font-size: 2.5rem; color: var(--accent); margin-bottom: 1rem;"></i>
+          <h3>Contact Details</h3>
+          <p>Phone: +91 XXXX XXXXXX<br>
+          Email: contact@christthekingchurch.com</p>
+        </div>
+        
+        <div class="card animate-on-scroll" style="animation-delay: 0.2s;">
+          <i class="fas fa-clock" style="font-size: 2.5rem; color: var(--accent); margin-bottom: 1rem;"></i>
+          <h3>Service Times</h3>
+          <p>Sunday Mass: 8:00 AM<br>
+          Evening Prayer: 6:00 PM<br>
+          Bible Study: Wed 7:00 PM</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form Section -->
+  <section class="section" style="background: var(--bg-primary);">
+    <div class="container">
+      <h2 class="section-title">Send Us a Message</h2>
+      <div class="card" style="max-width: 600px; margin: 0 auto;">
+        <form id="contactForm">
+          <div style="margin-bottom: 1.5rem;">
+            <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Your Name</label>
+            <input type="text" name="name" required style="width: 100%; padding: 0.75rem; border: 1px solid #e5e7eb; border-radius: var(--radius-md); font-size: 1rem;">
+          </div>
+          <div style="margin-bottom: 1.5rem;">
+            <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Email Address</label>
+            <input type="email" name="email" required style="width: 100%; padding: 0.75rem; border: 1px solid #e5e7eb; border-radius: var(--radius-md); font-size: 1rem;">
+          </div>
+          <div style="margin-bottom: 1.5rem;">
+            <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Message</label>
+            <textarea name="message" rows="5" required style="width: 100%; padding: 0.75rem; border: 1px solid #e5e7eb; border-radius: var(--radius-md); font-size: 1rem; resize: vertical;"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
 
   <!-- Footer -->
-  <footer class="bg-gray-800 text-white py-6">
-    <div class="container mx-auto text-center">
+  <footer>
+    <div class="container text-center">
       <p>&copy; 2024 Christ the King Church, Iruthyapuram. All rights reserved.</p>
     </div>
   </footer>
+
+  <!-- JavaScript for Enhanced UI -->
+  <script>
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // Intersection Observer for animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.animate-on-scroll').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Contact form handler
+    document.getElementById('contactForm')?.addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Thank you for your message! We will get back to you soon.');
+      this.reset();
+    });
+  </script>
 
 </body>
 </html>
