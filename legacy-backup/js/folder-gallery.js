@@ -78,40 +78,36 @@ document.addEventListener('DOMContentLoaded', () => {
   const loadImages = () => {
     const promises = [];
     
-    // Try loading images with different extensions and naming patterns
+    // Try loading images with common extensions and case variations
     for (let i = 1; i <= maxAttempts; i++) {
-      // Try .jpg first
-      const imgPath = `${folderPath}/${i}.jpg`;
-      
+      const extensionCandidates = ['JPG', 'jpg', 'PNG', 'png'];
+
       const promise = new Promise((resolve) => {
-        const img = new Image();
-        img.src = imgPath;
-        
-        img.onload = () => {
-          console.log(`Loaded: ${imgPath}`);
-          loadedImages.push({ src: imgPath, index: loadedImages.length });
-          resolve(true);
-        };
-        
-        img.onerror = () => {
-          // Try .png as fallback
-          const pngPath = `${folderPath}/${i}.png`;
-          const pngImg = new Image();
-          pngImg.src = pngPath;
-          
-          pngImg.onload = () => {
-            console.log(`Loaded: ${pngPath}`);
-            loadedImages.push({ src: pngPath, index: loadedImages.length });
+        const tryExtension = (extensionIndex) => {
+          if (extensionIndex >= extensionCandidates.length) {
+            console.log(`Not found for image index ${i}`);
+            resolve(false);
+            return;
+          }
+
+          const path = `${folderPath}/${i}.${extensionCandidates[extensionIndex]}`;
+          const img = new Image();
+          img.src = path;
+
+          img.onload = () => {
+            console.log(`Loaded: ${path}`);
+            loadedImages.push({ src: path, index: loadedImages.length });
             resolve(true);
           };
-          
-          pngImg.onerror = () => {
-            console.log(`Not found: ${imgPath} or ${pngPath}`);
-            resolve(false);
+
+          img.onerror = () => {
+            tryExtension(extensionIndex + 1);
           };
         };
+
+        tryExtension(0);
       });
-      
+
       promises.push(promise);
     }
     
