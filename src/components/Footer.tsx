@@ -65,7 +65,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             </li>
             <li style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
               <Phone size={18} className="text-accent" style={{ flexShrink: 0, color: 'var(--accent)' }} />
-              <span style={{ fontSize: '0.95rem' }}>+91 XXXX XXXXXX</span>
+              <span style={{ fontSize: '0.95rem' }}>04651-243375</span>
             </li>
             <li style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
               <Mail size={18} className="text-accent" style={{ flexShrink: 0, color: 'var(--accent)' }} />
@@ -90,8 +90,16 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
         </div>
       </div>
 
-      <div className="container footer-bottom-bar">
-        <p>{t('footerCopy')}</p>
+      <div className="container footer-bottom-bar" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
+        <p style={{ margin: 0 }}>{t('footerCopy')}</p>
+        <div style={{ display: 'flex', gap: '1.25rem' }}>
+          <a href="https://www.instagram.com/christthekingchurchiru/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-muted)', transition: 'color 0.3s ease' }} onMouseEnter={(e) => e.currentTarget.style.color = '#ec4899'} onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-muted)'}>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+          </a>
+          <a href="https://www.youtube.com/@ChristTheKingChurchIru" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-muted)', transition: 'color 0.3s ease' }} onMouseEnter={(e) => e.currentTarget.style.color = '#ef4444'} onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-muted)'}>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.94 2c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+          </a>
+        </div>
       </div>
     </footer>
   );

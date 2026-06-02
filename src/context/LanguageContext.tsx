@@ -13,6 +13,7 @@ const translations: Record<Language, TranslationData> = {
     homeLink: "Home",
     historyLink: "History",
     galleryLink: "Gallery",
+    priestsLink: "Parish Priests",
     contactLink: "Contact",
     languageBtnLabel: "தமிழ்",
 
@@ -67,7 +68,7 @@ const translations: Record<Language, TranslationData> = {
     addressTitle: "Address",
     addressText: "Christ the King Church, Iruthyapuram, Kerala, India",
     contactDetailsTitle: "Contact Details",
-    contactDetailsText: "Phone: +91 XXXX XXXXXX\nEmail: contact@christthekingchurch.com",
+    contactDetailsText: "Phone: 04651-243375\nEmail: contact@christthekingchurch.com",
     serviceTimesTitle: "Service Times",
     serviceTimesText: "Sunday Mass: 8:00 AM\nEvening Prayer: 6:00 PM\nBible Study: Wed 7:00 PM",
     formTitle: "Send Us a Message",
@@ -85,7 +86,7 @@ const translations: Record<Language, TranslationData> = {
     footerCopy: "© 2026 Christ the King Church, Iruthyapuram. All rights reserved.",
 
     // Gallery Page
-    galleryPageTitle: "Gallery Folders",
+    galleryPageTitle: "Gallery",
     galleryPageDesc: "Explore the wonderful moments captured in the life of Christ the King Church, Iruthyapuram.",
     noGalleriesMsg: "No galleries available yet.",
     noImagesMsg: "No images found in this folder.",
@@ -97,6 +98,7 @@ const translations: Record<Language, TranslationData> = {
     homeLink: "முகப்பு",
     historyLink: "வரலாறு",
     galleryLink: "படக்காட்சிகள்",
+    priestsLink: "பங்கு தந்தையர்கள்",
     contactLink: "தொடர்பு",
     languageBtnLabel: "English",
 
@@ -151,7 +153,7 @@ const translations: Record<Language, TranslationData> = {
     addressTitle: "முகவரி",
     addressText: "கிறிஸ்து அரசர் ஆலயம், இருதயபுரம், கேரளா, இந்தியா",
     contactDetailsTitle: "தொடர்பு விவரங்கள்",
-    contactDetailsText: "தொலைபேசி: +91 XXXX XXXXXX\nமின்னஞ்சல்: contact@christthekingchurch.com",
+    contactDetailsText: "தொலைபேசி: 04651-243375\nமின்னஞ்சல்: contact@christthekingchurch.com",
     serviceTimesTitle: "வழிபாட்டு நேரங்கள்",
     serviceTimesText: "ஞாயிறு திருப்பலி: காலை 8:00 மணி\nமாலை ஜெபம்: மாலை 6:00 மணி\nவிவிலிய படிப்பு: புதன் மாலை 7:00 மணி",
     formTitle: "செய்தி அனுப்பவும்",
@@ -169,7 +171,7 @@ const translations: Record<Language, TranslationData> = {
     footerCopy: "© 2026 கிறிஸ்து அரசர் ஆலயம், இருதயபுரம். அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.",
 
     // Gallery Page
-    galleryPageTitle: "புகைப்பட தொகுப்புகள்",
+    galleryPageTitle: "படக்காட்சிகள்",
     galleryPageDesc: "இருதயபுரம் கிறிஸ்து அரசர் ஆலயத்தின் வரலாற்று மற்றும் திருவிழா நிகழ்வுகளின் புகைப்படங்களைக் கண்டறியுங்கள்.",
     noGalleriesMsg: "புகைப்பட தொகுப்புகள் எதுவும் இல்லை.",
     noImagesMsg: "இந்தத் தொகுப்பில் புகைப்படங்கள் எதுவும் இல்லை.",

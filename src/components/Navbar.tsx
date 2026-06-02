@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLanguage } from '../context/LanguageContext';
-import { Globe, Menu, X } from 'lucide-react';
+import { useTheme } from '../context/ThemeContext';
+import { Globe, Menu, X, Sun, Moon } from 'lucide-react';
 
 interface NavbarProps {
   currentPage: string;
@@ -9,6 +10,7 @@ interface NavbarProps {
 
 export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
   const { t, toggleLanguage, language } = useLanguage();
+  const { theme, toggleTheme } = useTheme();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -29,6 +31,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
     { id: 'home', labelKey: 'homeLink' },
     { id: 'history', labelKey: 'historyLink' },
     { id: 'gallery', labelKey: 'galleryLink' },
+    { id: 'priests', labelKey: 'priestsLink' },
     { id: 'contact', labelKey: 'contactLink' }
   ];
 
@@ -64,17 +67,25 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
             </li>
           ))}
           
-          {/* Language Switcher inside Mobile Menu */}
-          <li className="mobile-only" style={{ display: isMobileMenuOpen ? 'block' : 'none' }}>
+          {/* Action Buttons inside Mobile Menu */}
+          <li className="mobile-only" style={{ display: isMobileMenuOpen ? 'flex' : 'none', gap: '1rem', justifyContent: 'center', marginTop: '1rem' }}>
             <button className="btn-lang" onClick={toggleLanguage}>
               <Globe size={16} />
               <span>{language === 'en' ? 'தமிழ்' : 'English'}</span>
+            </button>
+            <button className="btn-lang" onClick={toggleTheme} aria-label="Toggle theme">
+              {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
             </button>
           </li>
         </ul>
 
         {/* Action Buttons & Hamburger */}
-        <div className="nav-actions">
+        <div className="nav-actions" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+          
+          <button className="btn-lang" onClick={toggleTheme} aria-label="Toggle theme" style={{ padding: '0.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+          </button>
+
           {/* Language Switcher for Desktop */}
           <button className="btn-lang" style={{ display: 'flex' }} onClick={toggleLanguage}>
             <Globe size={16} />

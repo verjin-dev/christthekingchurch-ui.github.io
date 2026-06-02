@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "name": "Fr. D.M. Sujan Kumar",
+    "years": "2002 - 2005",
+    "photoPath": "/images/priests/default-priest.jpg",
+    "description": "The first parish priest of Iruthyapuram who laid the foundation for our modern community."
+  },
+  {
+    "id": 2,
+    "name": "Fr. John Doe",
+    "years": "2005 - 2012",
+    "photoPath": "/images/priests/default-priest.jpg",
+    "description": "Guided the parish through the construction of the new church building."
+  },
+  {
+    "id": 3,
+    "name": "Fr. Current Priest",
+    "years": "2012 - Present",
+    "photoPath": "/images/priests/default-priest.jpg",
+    "description": "Currently serving the Iruthyapuram community with dedication and faith."
+  }
+]

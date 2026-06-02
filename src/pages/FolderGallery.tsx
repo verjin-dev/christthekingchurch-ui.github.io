@@ -74,7 +74,7 @@ export const FolderGallery: React.FC<FolderGalleryProps> = ({ year, folderKey, o
         className="section" 
         style={{ 
           padding: '8rem 0 3rem 0',
-          background: 'linear-gradient(to bottom, #0f172a, #020617)',
+          background: 'var(--gradient-hero)',
           borderBottom: '1px solid var(--border-glass)'
         }}
       >
@@ -123,8 +123,7 @@ export const FolderGallery: React.FC<FolderGalleryProps> = ({ year, folderKey, o
                 gap: '1.5rem'
               }}
             >
-              {folder.images.map((imgName, index) => {
-                const imgPath = `/images/gallery/${year}/${folderKey}/${imgName}`;
+              {folder.imagePaths.map((imgPath, index) => {
                 return (
                   <div 
                     key={index} 
@@ -175,7 +174,7 @@ export const FolderGallery: React.FC<FolderGalleryProps> = ({ year, folderKey, o
             {/* Image display */}
             <img 
               className="lightbox-img"
-              src={`/images/gallery/${year}/${folderKey}/${folder.images[activePhotoIndex]}`}
+              src={folder.imagePaths[activePhotoIndex]}
               alt={`${folder.displayName} - Large ${activePhotoIndex + 1}`}
               onError={(e) => {
                 e.currentTarget.src = '/images/logo.png';

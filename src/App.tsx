@@ -6,6 +6,7 @@ import { History } from './pages/History';
 import { Gallery } from './pages/Gallery';
 import { FolderGallery } from './pages/FolderGallery';
 import { Contact } from './pages/Contact';
+import { Priests } from './pages/Priests';
 
 function App() {
   const [currentPage, setCurrentPage] = useState<string>('home');
@@ -34,7 +35,7 @@ function App() {
         }
       }
 
-      if (['home', 'history', 'gallery', 'contact'].includes(hash)) {
+      if (['home', 'history', 'gallery', 'priests', 'contact'].includes(hash)) {
         setCurrentPage(hash);
         setCurrentParams(null);
       }
@@ -61,6 +62,8 @@ function App() {
         return <Home onNavigate={handleNavigate} />;
       case 'history':
         return <History />;
+      case 'priests':
+        return <Priests />;
       case 'gallery':
         return <Gallery onNavigate={handleNavigate} />;
       case 'gallery-folder':
